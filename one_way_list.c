@@ -1,3 +1,8 @@
+/*
+ * Author Albert Piekielny
+ * An example of implementation in a C language of a one-way list
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -197,14 +202,10 @@ void testOfWorking(List **list){
        elementsToAdd[randIndex]= tempValue;
     }
 
-    for(int i= 0; i< 100; ++i)
-    {
-        insert(list,elementsToAdd[i]);
-    };
+    for(int i= 0; i< 100; ++i)insert(list,elementsToAdd[i]);
 
     List *ptr = *list;
     int max= 0;
-    int numberToCheck =1;
     while (!isempty(list)){
         for(int i = 1;i<=100;++i) findTRANS(list,i);
         while (ptr != NULL){
@@ -216,7 +217,6 @@ void testOfWorking(List **list){
         delete(list, max);      /*Usuwamy element max*/
         ptr = *list;            /*ustawiamy wskaźnik na początek listy*/
         max = 0;                /*zereujemy wartosć maxymalną*/
-    //    numberToCheck++;        /* zwiększamy numer do znalezienia*/
     }
     printf("counter: %d \n", counter);
 }
